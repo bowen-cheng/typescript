@@ -13,7 +13,8 @@ function startGame(): void {
   // messageElement.innerText = 'Welcome! Starting a new game...'; // TS reports object could be null
   // "!" is the non-null assertion operator tells the compiler "this won't be null/undefined so don't complain"
   // messageElement!.innerText = 'Welcome! Starting a new game...';
-  postScore(100, playerName)
+  postScore(100, playerName);
+  postScore(-5);
 }
 
 function logPlayer(name: string = 'Unknown player'): void {
@@ -22,6 +23,21 @@ function logPlayer(name: string = 'Unknown player'): void {
 
 // function postScore(score: number, playerName?: string): void { // "?" marks a parameter as optional
 function postScore(score: number, playerName: string = 'Unknown player'): void {
+
+  // Both logMessage and logError are of the same type since they have the same parameter type and
+  // return type. So the two functions are of the same type.
+  let logMessage = (message: string) => console.log(message);
+  let logError = (error: string) => console.error(error);
+  // Therefore, they can be assigned to the "logger" variable below.
+  let logger: (value: string) => void;
+
+  if (score < 0) {
+    logger = logError;
+  } else {
+    logger = logMessage;
+  }
+  logger(`Score: ${score}`);
+
   let scoreElement: HTMLElement = <HTMLElement> document.getElementById('postedScores');
   scoreElement!.innerText = `${score} - ${playerName}`;
 }
@@ -30,7 +46,7 @@ function getInputValue(elementId: string): string | undefined {
   let inputElement: HTMLInputElement = <HTMLInputElement> document.getElementById(elementId);
   if (inputElement.value === '') {
     return undefined;
-  }  else {
+  } else {
     return inputElement.value;
   }
 }
