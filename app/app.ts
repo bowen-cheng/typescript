@@ -1,3 +1,5 @@
+///<reference path="player.ts"/>
+
 function startGame(): void {
   let playerName: string | undefined;
   // playerName = null; // error
@@ -52,3 +54,7 @@ function getInputValue(elementId: string): string | undefined {
 }
 
 document.getElementById('startGame')!.addEventListener('click', startGame);
+
+let firstPlayer: Player = new Player();
+firstPlayer.name = 'Daniel';
+console.log(firstPlayer.formatName());
