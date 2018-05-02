@@ -1,11 +1,33 @@
 ///<reference path="player.ts"/>
+///<reference path="game.ts"/>
+///<reference path="util.ts"/>
 
+let newGame: Game;
+
+// add click handler ot he start game button
+document.getElementById('startGame')!.addEventListener('click', () =>{
+  let player: Player = new Player();
+  player.name = Util.getInputValue('playername');
+
+  let problemCount: number = Number(Util.getInputValue('problemCount'));
+  let factor: number = Number(Util.getInputValue('factor'));
+
+  newGame = new Game(player, problemCount, factor);
+  newGame.displayGame();
+});
+
+// add click handler to hte calculate score button
+document.getElementById('calculate')!.addEventListener('click', () => {
+  newGame.calculateScore();
+});
+
+/*
 function startGame(): void {
   let playerName: string | undefined;
   // playerName = null; // error
   // playerName = undefined; // works
   // playerName = 'Billy'; // works
-  playerName = getInputValue('playername');
+  playerName = Util.getInputValue('playername');
 
   // logPlayer(null); // error
   // logPlayer(undefined); // works
@@ -27,7 +49,7 @@ function logPlayer(name: string = 'Unknown player'): void {
 function postScore(score: number, playerName: string = 'Unknown player'): void {
 
   // Both logMessage and logError are of the same type since they have the same parameter type and
-  // return type. So the two functions are of the same type.
+  // return type.
   let logMessage = (message: string) => console.log(message);
   let logError = (error: string) => console.error(error);
   // Therefore, they can be assigned to the "logger" variable below.
@@ -44,17 +66,10 @@ function postScore(score: number, playerName: string = 'Unknown player'): void {
   scoreElement!.innerText = `${score} - ${playerName}`;
 }
 
-function getInputValue(elementId: string): string | undefined {
-  let inputElement: HTMLInputElement = <HTMLInputElement> document.getElementById(elementId);
-  if (inputElement.value === '') {
-    return undefined;
-  } else {
-    return inputElement.value;
-  }
-}
-
 document.getElementById('startGame')!.addEventListener('click', startGame);
 
 let firstPlayer: Player = new Player();
 firstPlayer.name = 'Daniel';
 console.log(firstPlayer.formatName());
+
+*/
