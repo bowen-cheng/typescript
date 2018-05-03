@@ -7,7 +7,7 @@ let newGame: Game;
 // add click handler ot he start game button
 document.getElementById('startGame')!.addEventListener('click', () =>{
   let player: Player = new Player();
-  player.name = Util.getInputValue('playername');
+  player.name = Util.getInputValue('playerName');
 
   let problemCount: number = Number(Util.getInputValue('problemCount'));
   let factor: number = Number(Util.getInputValue('factor'));
@@ -27,7 +27,7 @@ function startGame(): void {
   // playerName = null; // error
   // playerName = undefined; // works
   // playerName = 'Billy'; // works
-  playerName = Util.getInputValue('playername');
+  playerName = Util.getInputValue('playerName');
 
   // logPlayer(null); // error
   // logPlayer(undefined); // works
