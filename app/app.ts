@@ -5,7 +5,7 @@
 let newGame: Game;
 
 // add click handler ot he start game button
-document.getElementById('startGame')!.addEventListener('click', () =>{
+document.getElementById('startGame')!.addEventListener('click', () => {
   let player: Player = new Player();
   player.name = Util.getInputValue('playerName');
 
@@ -23,7 +23,7 @@ document.getElementById('calculate')!.addEventListener('click', () => {
 
 /*
 function startGame(): void {
-  let playerName: string | undefined;
+  let playerName: string | undefined; // playerName is either of type 'string' or 'undefined'
   // playerName = null; // error
   // playerName = undefined; // works
   // playerName = 'Billy'; // works
