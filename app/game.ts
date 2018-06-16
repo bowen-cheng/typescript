@@ -1,11 +1,11 @@
-///<reference path="util.ts"/>
-///<reference path="result.ts"/>
-///<reference path="player.ts"/>
-///<reference path="scoreboard.ts"/>
+import Player from "./player"; // Importing the default export without aliasing it
+import {getValue} from "./util";
+import {Result} from "./result";
+import {Scoreboard as ResultPanel} from "./scoreboard";
 
-class Game {
+export class Game {
 
-  private scoreboard: Scoreboard = new Scoreboard();
+  private scoreboard: ResultPanel = new ResultPanel();
 
   constructor(public player: Player, public problemCount: number, public factor: number) {
     // Putting access modifier in front of the parameters automatically create a 'simple constructor'
@@ -38,7 +38,7 @@ class Game {
 
     // loop through the text boxes and calculate the number that are correct
     for (let i = 1; i <= this.problemCount; i++) {
-      let answer: number = Number(Util.getInputValue('answer' + i));
+      let answer: number = Number(getValue('answer' + i));
       if (i * this.factor === answer) {
         score++;
       }

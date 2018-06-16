@@ -1,16 +1,16 @@
-///<reference path="player.ts"/>
-///<reference path="game.ts"/>
-///<reference path="util.ts"/>
+import {Game} from "./game"; // A simple import statement without aliasing
+import GamePlayer from "./player"; // Importing the default export form Player module and alias it to 'GamePlayer'
+import * as Helper from "./util"; // import everything from Util module and alias the module as Helper
 
 let newGame: Game;
 
 // add click handler ot he start game button
 document.getElementById('startGame')!.addEventListener('click', () => {
-  let player: Player = new Player();
-  player.name = Util.getInputValue('playerName');
+  let player: GamePlayer = new GamePlayer();
+  player.name = Helper.getValue('playerName');
 
-  let problemCount: number = Number(Util.getInputValue('problemCount'));
-  let factor: number = Number(Util.getInputValue('factor'));
+  let problemCount: number = Number(Helper.getValue('problemCount'));
+  let factor: number = Number(Helper.getValue('factor'));
 
   newGame = new Game(player, problemCount, factor);
   newGame.displayGame();
@@ -71,5 +71,4 @@ document.getElementById('startGame')!.addEventListener('click', startGame);
 let firstPlayer: Player = new Player();
 firstPlayer.name = 'Daniel';
 console.log(firstPlayer.formatName());
-
 */
