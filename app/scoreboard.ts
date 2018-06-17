@@ -1,10 +1,13 @@
-import { Result } from "./result";
+import { Result } from './result';
+import * as _ from 'lodash'; // Import external library from the 'node_modules' dir
 
 export class Scoreboard {
   private results: Result[] = [];
 
   addResult(newResult: Result): void {
     this.results.push(newResult);
+    let capsName: string = _.upperCase(newResult.playerName);
+    console.log(`${capsName}'s score is ${newResult.score}`);
   }
 
   updateScoreBoard(): void {
