@@ -1,4 +1,4 @@
-import {Game} from "./game"; // A simple import statement without aliasing
+import { Game } from "./game"; // A simple import statement without aliasing
 import GamePlayer from "./player"; // Importing the default export form Player module and alias it to 'GamePlayer'
 import * as Helper from "./util"; // import everything from Util module and alias the module as Helper
 

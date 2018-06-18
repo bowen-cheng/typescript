@@ -1,7 +1,7 @@
 import Player from "./player"; // Importing the default export without aliasing it
-import {getValue} from "./util";
-import {Result} from "./result";
-import {Scoreboard as ResultPanel} from "./scoreboard";
+import { getValue } from "./util";
+import { Result } from "./result";
+import { Scoreboard as ResultPanel } from "./scoreboard";
 
 export class Game {
 
